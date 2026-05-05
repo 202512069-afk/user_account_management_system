@@ -1,0 +1,49 @@
+How to Run / Test the Project
+
+This project is a simple web-based user login system using PHP and MySQL.
+
+
+1. Setup Project Folder
+
+Clone or download the repository and place the project folder inside:
+
+C:\xampp\htdocs\user_system
+
+Make sure all project files are inside this folder.
+
+
+2. Start XAMPP
+
+Open XAMPP and start the following services:
+
+Apache
+MySQL
+
+
+3. Setup Database
+
+Open your browser and go to:
+
+http://localhost/phpmyadmin
+
+Then follow these steps:
+
+
+1. Create a new database named:
+
+   user_management_db
+
+2. Click the Import tab
+
+3. Select the .sql file from the project folder
+
+4. Click Go to import the database
+
+
+4. Run the Project
+
+Open your browser and go to:
+
+http://localhost/user_system/
+
+You should now see the login page.
