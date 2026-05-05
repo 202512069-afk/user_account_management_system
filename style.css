@@ -1,0 +1,130 @@
+/* style.css */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1e40af;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-card {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    height: 80%;
+    min-height: 550px;
+    border-radius: 50px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.full-screen {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+/* Form Styling */
+.form-side {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.brand-icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.welcome-text {
+    font-weight: 700;
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    margin-bottom: 30px;
+}
+
+.sub-text {
+    color: #6b7280;
+    margin-bottom: 8%;
+}
+
+.form-control {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 12px;
+    padding: 12px 15px;
+    border: 1px solid #d1d5db;
+    margin-bottom: 15px;
+}
+
+.options-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    color: #4b5563;
+}
+
+.forgot-link {
+    text-decoration: none;
+    color: #4b5563;
+}
+
+.login-btn {
+    background-color: #1e3a8a;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    margin-bottom: 25px;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #1e40af;
+}
+
+.register-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.register-footer a {
+    color: #1e3a8a;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.abstract-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevents overlay from blocking button clicks */
+    z-index: 0;
+}
