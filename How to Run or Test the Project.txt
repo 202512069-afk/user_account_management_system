@@ -7,7 +7,13 @@ This project is a simple web-based user login system using PHP and MySQL.
 
 Clone or download the repository and place the project folder inside:
 
-C:\xampp\htdocs\user_account_management_system
+C:\xampp\htdocs
+
+then in htdocs create a file and named it 'user_system'
+
+C:\xampp\htdocs\user_system
+
+download the files in Github, place it to the user_system folder.
 
 Make sure all project files are inside this folder.
 
@@ -15,10 +21,8 @@ Make sure all project files are inside this folder.
 2. Start XAMPP
 
 Open XAMPP and start the following services:
-
-Apache
-MySQL
-
+- Apache
+- MySQL
 
 3. Setup Database
 
