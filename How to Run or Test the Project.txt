@@ -48,6 +48,6 @@ Then follow these steps:
 
 Open your browser and go to:
 
-http://localhost/user_account_management_system/
+http://localhost/user_system/login.php
 
 You should now see the login page.
