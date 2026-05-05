@@ -35,7 +35,7 @@ if (!isset($_SESSION['user_id'])) {
                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                     <a href="admin_view.php" class="btn btn-primary admin-panel me-2">Admin Panel</a>
                 <?php endif; ?>
-                <a href="logout.php" class="btn btn-primary">Logout</a>
+                <a href="logout.php" class="btn btn-primary" onclick="return confirm('Are you sure you want to logout?')">Logout</a>
             </div>
         </div>
         <hr>
