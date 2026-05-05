@@ -1,11 +1,14 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['user'])){
-    header("Location: login.php");
+$_SESSION = array();
+
+if (isset($_COOKIE[session_name()])) {
+    setcookie(session_name(), '', time()-42000, '/');
 }
+
+session_destroy();
+
+header("Location: login.php");
+exit();
 ?>
-
-<h1>Welcome, <?php echo $_SESSION['user']; ?>!</h1>
-
-<a href="logout.php">Logout</a>
