@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1e40af;
+    margin: 0;
+    padding: 20px;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-card {
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 40px;
+    display: flex;
+    position: relative;
+    overflow: visible;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.form-side {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.welcome-text {
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-control {
+    width: 100%;
+    border-radius: 12px;
+    padding: 10px 15px;
+    border: 1px solid #d1d5db;
+    margin-bottom: 10px;
+}
+
+.alert {
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.login-btn {
+    background-color: #1e3a8a;
+    color: white;
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #1e40af;
+}
+
+.register-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: bold;
+}
+
+.user-info p {
+    margin-bottom: 0.25rem !important;
+}
+.user-info small {
+    font-weight: 500;
+}
