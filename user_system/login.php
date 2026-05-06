@@ -56,10 +56,6 @@ if (isset($_POST['login'])) {
             <div class="mb-3">
                 <input type="password" name="password" class="form-control" placeholder="Password" required>
             </div>
-            
-            <div class="options-row">
-                <a href="#" class="forgot-link">Forgot password?</a>
-            </div>
 
             <button type="submit" name="login" class="login-btn">Login</button>
         </form>
