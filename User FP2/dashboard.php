@@ -53,7 +53,7 @@ if (!isset($_SESSION['user_id'])) {
             </div>
         </div>
 
-        <!-- Existing Cards -->
+        <!-- Cards -->
         <div class="row mt-4">
             <div class="col-md-4 d-flex">
                 <div class="card p-3 shadow-sm blue-theme w-100 d-flex flex-column">
@@ -78,14 +78,36 @@ if (!isset($_SESSION['user_id'])) {
                     <h4>Delete Account</h4>
                     <p>Just do it, Delete it.</p>
                     <div class="mt-auto">
-                        <a href="delete_account.php" class="btn btn-primary w-100"
-                           onclick="return confirm('Are you sure you want to delete your account?\nThis action cannot be undone.');">
+                        <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#deleteModal">
                             Delete Account
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Account Deletion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete your account?</p>
+                    <p class="text-danger"><strong>This action cannot be undone.</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a href="delete_account.php" class="btn btn-danger">Yes, Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
