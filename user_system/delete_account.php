@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($password === '') {
         $error = "Password is required.";
     } else {
-        
+        // Fetch stored password hash
         $stmt = $mysqli->prepare("SELECT password FROM users WHERE user_id=?");
         $stmt->bind_param("i", $userId);
         $stmt->execute();
@@ -17,11 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->fetch();
         $stmt->close();
 
-        
+        // Verify entered password
         if (!password_verify($password, $storedHash)) {
             $error = "Current password is incorrect.";
         } else {
-            
+            // Delete account
             $stmt = $mysqli->prepare("DELETE FROM users WHERE user_id=?");
             $stmt->bind_param("i", $userId);
             if ($stmt->execute()) {
@@ -45,18 +45,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body class="bg-light d-flex align-items-center justify-content-center" style="height:100vh;">
     <div class="card p-4 shadow-sm" style="max-width:500px; width:100%;">
-        <h4 class="mb-3 text-danger">Delete Account</h4>
-        <p class="text-danger">⚠️ Warning: This action cannot be undone!</p>
+        <h4 class="mb-3 text-primary">Delete Account</h4>
+        <p class="text-primary">⚠️ Warning: This action cannot be undone!</p>
         <form method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This cannot be undone!');">
             <div class="mb-3">
                 <label class="form-label">Enter Current Password</label>
                 <input type="password" class="form-control" name="password" required>
             </div>
-            <button type="submit" class="btn btn-danger w-100">Delete My Account</button>
+            <button type="submit" class="btn btn-primary w-100 mb-2">Delete My Account</button>
         </form>
 
+        <!-- Back to Dashboard Button -->
+        <a href="dashboard.php" class="btn btn-secondary w-100">Back to Dashboard</a>
+
         <!-- Messages -->
-        <?php if(isset($error)) echo "<p class='text-danger mt-3'>$error</p>"; ?>
+        <?php if(isset($error)) echo "<p class='text-primary mt-3'>$error</p>"; ?>
     </div>
 </body>
 </html>

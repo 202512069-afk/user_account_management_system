@@ -11,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$userId) {
         $error = "No user is logged in.";
     } else {
-        
         $stmt = $mysqli->prepare("SELECT password FROM users WHERE user_id=?");
         $stmt->bind_param("i", $userId);
         $stmt->execute();
@@ -67,8 +66,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label class="form-label">Confirm New Password</label>
                 <input type="password" class="form-control" name="confirm_password" required>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Update Password</button>
+            <button type="submit" class="btn btn-primary w-100 mb-2">Update Password</button>
         </form>
+
+        <!-- Back to Dashboard Button -->
+        <a href="dashboard.php" class="btn btn-secondary w-100">Back to Dashboard</a>
 
         <!-- Messages -->
         <?php if(isset($error)) echo "<p class='text-danger mt-3'>$error</p>"; ?>

@@ -2,7 +2,6 @@
 session_start();
 include 'db.php'; 
 
-
 $firstName = $_SESSION['first_name'] ?? '';
 $lastName  = $_SESSION['last_name'] ?? '';
 $email     = $_SESSION['email'] ?? '';
@@ -18,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = "Invalid email format.";
     } else {
-        
         $stmt = $mysqli->prepare("SELECT user_id FROM users WHERE email = ? AND user_id != ?");
         $stmt->bind_param("si", $email, $userId);
         $stmt->execute();
@@ -27,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($stmt->num_rows > 0) {
             $error = "Email already in use.";
         } else {
-            
             $stmt = $mysqli->prepare("UPDATE users SET first_name=?, last_name=?, email=? WHERE user_id=?");
             $stmt->bind_param("sssi", $firstName, $lastName, $email, $userId);
             if ($stmt->execute()) {
@@ -67,8 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label class="form-label">Email</label>
                 <input type="email" class="form-control" name="email" value="<?php echo htmlspecialchars($email); ?>" required>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Update Profile</button>
+            <button type="submit" class="btn btn-primary w-100 mb-2">Update Profile</button>
         </form>
+
+        <!-- Back to Dashboard Button -->
+        <a href="dashboard.php" class="btn btn-secondary w-100">Back to Dashboard</a>
 
         <!-- Messages -->
         <?php if(isset($error)) echo "<p class='text-danger mt-3'>$error</p>"; ?>
