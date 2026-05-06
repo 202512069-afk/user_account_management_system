@@ -1,0 +1,66 @@
+User Account Management System
+
+- A User Account Management System is a web-based solution that allows users to securely create, manage, and access their accounts.
+  It provides features such as registration, login authentication, profile management, and data security to ensure a smooth and safe user
+  experience.
+
+
+Group Members:
+1.
+2.
+3.
+
+
+How to Run / Test the Project
+
+This project is a simple web-based user login system using PHP and MySQL.
+
+
+1. Setup Project Folder
+
+Clone or download the repository and place the project folder inside:
+
+C:\xampp\htdocs
+
+then in htdocs create a file and named it 'user_system'
+
+C:\xampp\htdocs\user_system
+
+download the files in Github, place it to the user_system folder.
+
+Make sure all project files are inside this folder.
+
+
+2. Start XAMPP
+
+Open XAMPP and start the following services:
+- Apache
+- MySQL
+
+3. Setup Database
+
+Open your browser and go to:
+
+http://localhost/phpmyadmin
+
+Then follow these steps:
+
+
+1. Create a new database named:
+
+   user_management_db
+
+2. Click the Import tab
+
+3. Select the .sql file from the project folder
+
+4. Click Go to import the database
+
+
+4. Run the Project
+
+Open your browser and go to:
+
+http://localhost/user_system/login.php
+
+You should now see the login page.
