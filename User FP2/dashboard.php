@@ -55,28 +55,34 @@ if (!isset($_SESSION['user_id'])) {
 
         <!-- Existing Cards -->
         <div class="row mt-4">
-            <div class="col-md-4">
-                <div class="card p-3 shadow-sm blue-theme">
+            <div class="col-md-4 d-flex">
+                <div class="card p-3 shadow-sm blue-theme w-100 d-flex flex-column">
                     <h4>Profile</h4>
                     <p>Edit your name and email address.</p>
-                    <a href="edit_profile.php" class="btn btn-primary w-100">Edit Profile</a>
+                    <div class="mt-auto">
+                        <a href="edit_profile.php" class="btn btn-primary w-100">Edit Profile</a>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card p-3 shadow-sm blue-theme">
+            <div class="col-md-4 d-flex">
+                <div class="card p-3 shadow-sm blue-theme w-100 d-flex flex-column">
                     <h4>Password</h4>
                     <p>Keep your account safe by changing your password.</p>
-                    <a href="change_password.php" class="btn btn-primary w-100">Change Password</a>
+                    <div class="mt-auto">
+                        <a href="change_password.php" class="btn btn-primary w-100">Change Password</a>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card p-3 shadow-sm blue-theme">
+            <div class="col-md-4 d-flex">
+                <div class="card p-3 shadow-sm blue-theme w-100 d-flex flex-column">
                     <h4>Delete Account</h4>
                     <p>Just do it, Delete it.</p>
-                    <a href="delete_account.php" class="btn btn-primary w-100"
-                       onclick="return confirm('Are you sure you want to delete your account?\nThis action cannot be undone.');">
-                        Delete Account
-                    </a>
+                    <div class="mt-auto">
+                        <a href="delete_account.php" class="btn btn-primary w-100"
+                           onclick="return confirm('Are you sure you want to delete your account?\nThis action cannot be undone.');">
+                            Delete Account
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
