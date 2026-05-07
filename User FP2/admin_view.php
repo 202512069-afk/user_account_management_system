@@ -1,13 +1,13 @@
 <?php
 session_start();
 include 'db.php';
-
+// This is where the role of admin only can access, if a user tries to access they will get an alert Access Denied.
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     echo "<script>alert('Access Denied! Your role is: " . ($_SESSION['role'] ?? 'none') . "'); window.location='login.php';</script>";
     exit();
 }
 
-
+// This is where it shows the table list of the User and Admin from the Database.
 $sql = "SELECT user_id, first_name, last_name, email, username, role FROM users ORDER BY username ASC";
 $result = $mysqli->query($sql);
 
