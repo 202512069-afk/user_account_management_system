@@ -35,9 +35,11 @@ if (isset($_POST['register'])) {
     }
 
     // This check if the username is unique and no duplication.
-    $check_user = "SELECT username FROM users WHERE username='$username' LIMIT 1";
-    $user_result = mysqli_query($mysqli, $check_user);
-    if (mysqli_num_rows($user_result) > 0) {
+    $stmt = $mysqli->prepare("SELECT username FROM users WHERE username = ? LIMIT 1");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
         $errors[] = "Username is already taken.";
     }
 
