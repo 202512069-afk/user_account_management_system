@@ -17,6 +17,13 @@ if (isset($_POST['login'])) {
         $user = $result->fetch_assoc();
 
         if (password_verify($password, $user['password'])) {
+
+            // Added: Save successful login to login_log table
+            $log_stmt = $mysqli->prepare("INSERT INTO login_log (user_id, login_time, status) VALUES (?, NOW(), ?)");
+            $status = "Success";
+            $log_stmt->bind_param("is", $user['user_id'], $status);
+            $log_stmt->execute();
+
             // Store all the info you need in session
             $_SESSION['user_id']    = $user['user_id'];
             $_SESSION['username']   = $user['username'];
@@ -27,9 +34,11 @@ if (isset($_POST['login'])) {
 
             header("Location: dashboard.php");
             exit();
+
         } else {
             $error = "Wrong password!";
         }
+
     } else {
         $error = "User not found!";
     }
@@ -55,6 +64,7 @@ if (isset($_POST['login'])) {
             <div class="mb-3">
                 <input type="text" name="username" id="username" class="form-control" placeholder="Username" required>
             </div>
+
             <div class="mb-3">
                 <input type="password" name="password" class="form-control" placeholder="Password" required>
             </div>

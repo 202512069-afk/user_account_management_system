@@ -1,18 +1,31 @@
 <?php
 session_start();
 include 'db.php';
-// This is where the role of admin only can access, if a user tries to access they will get an alert Access Denied.
+
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
     echo "<script>alert('Access Denied! Your role is: " . ($_SESSION['role'] ?? 'none') . "'); window.location='login.php';</script>";
     exit();
 }
 
-// This is where it shows the table list of the User and Admin from the Database.
 $sql = "SELECT user_id, first_name, last_name, email, username, role FROM users ORDER BY username ASC";
 $result = $mysqli->query($sql);
 
 if (!$result) {
     die("Database query failed: " . $mysqli->error);
+}
+
+/* Login Logs Query */
+$log_sql = "
+SELECT login_log.log_id, users.username, login_log.login_time, login_log.status
+FROM login_log
+LEFT JOIN users ON login_log.user_id = users.user_id
+ORDER BY login_log.login_time DESC
+";
+
+$log_result = $mysqli->query($log_sql);
+
+if (!$log_result) {
+    die('Login log query failed: ' . $mysqli->error);
 }
 ?>
 <!DOCTYPE html>
@@ -95,6 +108,51 @@ if (!$result) {
             </table>
         </div>
     </div>
+
+    <div class="table-container">
+        <div class="table-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Login Logs</h2>
+                <span class="user-count">
+                    <?php echo $log_result->num_rows; ?> Logs
+                </span>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-hover table-blue">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Username</th>
+                        <th>Login Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                <?php
+                $log_count = 1;
+                while($log = $log_result->fetch_assoc()):
+                ?>
+                <tr>
+                    <td class="fw-bold"><?php echo $log_count++; ?></td>
+                    <td>
+                        <code><?php echo htmlspecialchars($log['username']); ?></code>
+                    </td>
+                    <td><?php echo htmlspecialchars($log['login_time']); ?></td>
+                    <td>
+                        <span class="badge bg-success p-2">
+                            <?php echo htmlspecialchars($log['status']); ?>
+                        </span>
+                    </td>
+                </tr>
+                <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 
 </body>
