@@ -37,6 +37,10 @@ if (isset($_POST['login'])) {
 
         } else {
             $error = "Wrong password!";
+$log_stmt = $mysqli->prepare("INSERT INTO login_log (user_id, login_time, status) VALUES (?, NOW(), ?)");
+$status = "Failed";
+$log_stmt->bind_param("is", $user['user_id'], $status);
+$log_stmt->execute();
         }
 
     } else {

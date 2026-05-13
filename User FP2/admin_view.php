@@ -142,9 +142,9 @@ if (!$log_result) {
                     </td>
                     <td><?php echo htmlspecialchars($log['login_time']); ?></td>
                     <td>
-                        <span class="badge bg-success p-2">
-                            <?php echo htmlspecialchars($log['status']); ?>
-                        </span>
+                        <span class="badge p-2 <?php echo ($log['status'] == 'Success') ? 'bg-success' : 'bg-danger'; ?>">
+    <?php echo htmlspecialchars($log['status']); ?>
+</span>
                     </td>
                 </tr>
                 <?php endwhile; ?>
